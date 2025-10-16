@@ -80,7 +80,6 @@ const Mapa = () => {
                       Mapa Interativo
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Integração com Leaflet em desenvolvimento
                     </p>
                   </div>
                   <div className="flex gap-4 justify-center pt-4">
