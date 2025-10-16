@@ -19,8 +19,6 @@ const navItems = [
   { title: "Imóveis", url: "/imoveis", icon: Building2 },
   { title: "Mapa Interativo", url: "/mapa", icon: Map },
   { title: "Documentos", url: "/documentos", icon: FileText },
-  { title: "Análises", url: "/analises", icon: BarChart3 },
-  { title: "Auditoria", url: "/auditoria", icon: Shield },
 ];
 
 export function AppSidebar() {
@@ -33,7 +31,7 @@ export function AppSidebar() {
           </div>
           <div>
             <h2 className="text-lg font-bold text-sidebar-foreground">Revitalise</h2>
-            <p className="text-xs text-sidebar-foreground/60">Recife Heritage</p>
+            <p className="text-xs text-sidebar-foreground/60"></p>
           </div>
         </div>
       </SidebarHeader>
@@ -50,10 +48,9 @@ export function AppSidebar() {
                       to={item.url}
                       end={item.url === "/"}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all ${
-                          item.highlight
-                            ? "bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
-                            : isActive
+                        `flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all ${item.highlight
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+                          : isActive
                             ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
                             : "text-sidebar-foreground hover:bg-sidebar-accent/50"
                         }`

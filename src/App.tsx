@@ -31,7 +31,7 @@ const App = () => (
                   <SidebarTrigger />
                   <div className="flex-1">
                     <h1 className="text-sm font-semibold text-foreground">
-                      Sistema de Revitalização - Prefeitura do Recife
+                      Sistema de Revitalização
                     </h1>
                   </div>
                 </div>

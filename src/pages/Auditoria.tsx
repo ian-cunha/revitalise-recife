@@ -59,11 +59,15 @@ const Auditoria = () => {
                         log.type === "success"
                           ? "bg-success/10 text-success"
                           : log.type === "warning"
-                          ? "bg-warning/10 text-warning"
-                          : "bg-primary/10 text-primary"
+                            ? "bg-warning/10 text-warning"
+                            : "bg-primary/10 text-primary"
                       }
                     >
-                      {log.type}
+                      {log.type === "success"
+                        ? "Sucesso"
+                        : log.type === "warning"
+                          ? "Em análise"
+                          : "Cadastrado"}
                     </Badge>
                   </div>
                   <div className="flex items-center gap-4 text-xs text-muted-foreground">

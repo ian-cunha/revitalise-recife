@@ -133,8 +133,8 @@ const Mapa = () => {
                         {imovel.status === "completo"
                           ? "Completo"
                           : imovel.status === "pendente"
-                          ? "Pendente"
-                          : "Irregular"}
+                            ? "Pendente"
+                            : "Irregular"}
                       </Badge>
                       <span className="text-xs text-muted-foreground">{imovel.tipo}</span>
                     </div>

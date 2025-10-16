@@ -17,14 +17,14 @@ const Index = () => {
     },
     {
       title: "Documentos Aprovados",
-      value: "189",
+      value: "24",
       icon: FileCheck,
       color: "text-success",
       bg: "bg-success-light",
     },
     {
       title: "Em Análise",
-      value: "34",
+      value: "2",
       icon: Clock,
       color: "text-warning",
       bg: "bg-warning-light",
@@ -111,13 +111,12 @@ const Index = () => {
                   className="flex items-start gap-3 p-4 rounded-xl hover:bg-muted/50 transition-colors border border-transparent hover:border-border"
                 >
                   <div
-                    className={`mt-1 rounded-full p-1.5 ${
-                      activity.status === "success"
-                        ? "bg-success-light text-success"
-                        : activity.status === "warning"
+                    className={`mt-1 rounded-full p-1.5 ${activity.status === "success"
+                      ? "bg-success-light text-success"
+                      : activity.status === "warning"
                         ? "bg-warning-light text-warning"
                         : "bg-primary-light text-primary"
-                    }`}
+                      }`}
                   >
                     <CheckCircle className="h-3 w-3" />
                   </div>
