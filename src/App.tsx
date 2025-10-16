@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
+import SubmeterDocumento from "./pages/SubmeterDocumento";
 import Imoveis from "./pages/Imoveis";
 import Mapa from "./pages/Mapa";
 import Documentos from "./pages/Documentos";
@@ -38,6 +39,7 @@ const App = () => (
               <main className="flex-1 p-6 bg-muted/30">
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/submeter" element={<SubmeterDocumento />} />
                   <Route path="/imoveis" element={<Imoveis />} />
                   <Route path="/mapa" element={<Mapa />} />
                   <Route path="/documentos" element={<Documentos />} />

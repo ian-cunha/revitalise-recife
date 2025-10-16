@@ -8,126 +8,127 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core Colors - Institutional Blue + Sustainability Green */
+    /* Minimal Color Palette */
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 220 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 220 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 220 15% 20%;
 
-    /* Primary - Deep Institutional Blue */
-    --primary: 215 85% 35%;
+    /* Primary - Clean Blue */
+    --primary: 220 70% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 215 85% 55%;
+    --primary-light: 220 70% 95%;
 
-    /* Secondary - Sustainability Green */
-    --secondary: 142 70% 45%;
+    /* Secondary - Soft Purple */
+    --secondary: 260 60% 50%;
     --secondary-foreground: 0 0% 100%;
+    --secondary-light: 260 60% 95%;
 
-    /* Muted - Neutral Grays */
-    --muted: 215 15% 95%;
-    --muted-foreground: 215 15% 45%;
+    /* Muted - Light Grays */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Accent - Revitalization Amber */
-    --accent: 35 95% 55%;
-    --accent-foreground: 215 25% 15%;
+    /* Accent - Vibrant Orange */
+    --accent: 25 95% 55%;
+    --accent-foreground: 220 15% 20%;
+    --accent-light: 25 95% 95%;
 
-    /* Destructive - Alert Red */
-    --destructive: 0 85% 55%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Success - Approval Green */
-    --success: 142 70% 45%;
+    /* Success - Fresh Green */
+    --success: 140 60% 45%;
     --success-foreground: 0 0% 100%;
+    --success-light: 140 60% 95%;
 
-    /* Warning - Pending Yellow */
-    --warning: 45 95% 55%;
-    --warning-foreground: 215 25% 15%;
+    /* Warning - Bright Yellow */
+    --warning: 45 90% 55%;
+    --warning-foreground: 220 15% 20%;
+    --warning-light: 45 90% 95%;
+
+    /* Destructive - Clean Red */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 70% 95%;
 
     /* Borders & Inputs */
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 215 85% 35%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 70% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Sidebar - Dark Professional */
-    --sidebar-background: 215 30% 12%;
-    --sidebar-foreground: 215 15% 85%;
-    --sidebar-primary: 215 85% 45%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 220 70% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 25% 18%;
-    --sidebar-accent-foreground: 215 15% 95%;
-    --sidebar-border: 215 25% 20%;
-    --sidebar-ring: 215 85% 55%;
+    --sidebar-accent: 220 15% 96%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 220 70% 50%;
 
-    /* Custom Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 85% 35%) 0%, hsl(215 85% 55%) 100%);
-    --gradient-success: linear-gradient(135deg, hsl(142 70% 45%) 0%, hsl(142 70% 65%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(215 85% 35%) 0%, hsl(215 85% 25%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(215 15% 98%) 100%);
+    /* Gamification Colors */
+    --gold: 45 95% 50%;
+    --silver: 0 0% 70%;
+    --bronze: 25 75% 45%;
 
-    /* Shadows */
-    --shadow-card: 0 4px 16px -2px hsl(215 25% 15% / 0.08);
-    --shadow-elevated: 0 8px 32px -4px hsl(215 25% 15% / 0.12);
-    --shadow-glow: 0 0 40px hsl(215 85% 55% / 0.25);
-
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Minimal Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
   }
 
   .dark {
-    --background: 215 30% 8%;
-    --foreground: 215 15% 95%;
+    --background: 220 20% 10%;
+    --foreground: 220 15% 95%;
 
-    --card: 215 30% 12%;
-    --card-foreground: 215 15% 95%;
+    --card: 220 20% 12%;
+    --card-foreground: 220 15% 95%;
 
-    --popover: 215 30% 12%;
-    --popover-foreground: 215 15% 95%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 15% 95%;
 
-    --primary: 215 85% 55%;
+    --primary: 220 70% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 215 85% 65%;
+    --primary-light: 220 70% 15%;
 
-    --secondary: 142 70% 55%;
+    --secondary: 260 60% 60%;
     --secondary-foreground: 0 0% 100%;
+    --secondary-light: 260 60% 15%;
 
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 35 95% 60%;
-    --accent-foreground: 215 30% 8%;
+    --accent: 25 95% 60%;
+    --accent-foreground: 220 20% 10%;
+    --accent-light: 25 95% 15%;
 
-    --destructive: 0 75% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --success: 142 70% 50%;
+    --success: 140 60% 50%;
     --success-foreground: 0 0% 100%;
+    --success-light: 140 60% 15%;
 
-    --warning: 45 95% 60%;
-    --warning-foreground: 215 30% 8%;
+    --warning: 45 90% 60%;
+    --warning-foreground: 220 20% 10%;
+    --warning-light: 45 90% 15%;
 
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 215 85% 55%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 70% 15%;
 
-    --sidebar-background: 215 35% 10%;
-    --sidebar-foreground: 215 15% 85%;
-    --sidebar-primary: 215 85% 55%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 70% 60%;
+
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 220 70% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 30% 16%;
-    --sidebar-accent-foreground: 215 15% 95%;
-    --sidebar-border: 215 30% 18%;
-    --sidebar-ring: 215 85% 65%;
-
-    --gradient-card: linear-gradient(180deg, hsl(215 30% 12%) 0%, hsl(215 30% 10%) 100%);
-    --shadow-card: 0 4px 16px -2px hsl(0 0% 0% / 0.3);
-    --shadow-elevated: 0 8px 32px -4px hsl(0 0% 0% / 0.4);
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 220 70% 60%;
   }
 }
 
@@ -138,5 +139,21 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@layer utilities {
+  .step-active {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  .step-completed {
+    @apply bg-success text-success-foreground;
+  }
+  
+  .step-inactive {
+    @apply bg-muted text-muted-foreground;
+  }
+}
+
