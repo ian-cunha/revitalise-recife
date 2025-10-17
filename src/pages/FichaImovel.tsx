@@ -10,8 +10,29 @@ import {
     Award,
     Star,
     Sparkles,
+    CheckCircle2,
+    User,
+    Building,
+    ShieldCheck,
 } from "lucide-react";
 import db from "@/data/db.json";
+
+const allSteps = [
+    { id: 1, title: "Matrícula do Imóvel", icon: Building, category: "Proprietário e Imóvel" },
+    { id: 2, title: "Identificação do Proprietário", icon: User, category: "Proprietário e Imóvel" },
+    { id: 3, title: "Inscrição Imobiliária", icon: FileText, category: "Proprietário e Imóvel" },
+    { id: 4, title: "Certidão Negativa de Débitos", icon: FileText, category: "Proprietário e Imóvel" },
+    { id: 5, title: "RRT/ART do Projeto e Execução", icon: Award, category: "Responsabilidade Técnica" },
+    { id: 6, title: "Comprovante de Regularidade", icon: Award, category: "Responsabilidade Técnica" },
+    { id: 7, title: "Projeto Arquitetônico Completo", icon: FileText, category: "Projeto Técnico" },
+    { id: 8, title: "Memorial Descritivo e Justificativo", icon: FileText, category: "Projeto Técnico" },
+    { id: 9, title: "Projetos Complementares", icon: FileText, category: "Projeto Técnico" },
+    { id: 10, title: "Plano de Gerenciamento de Resíduos", icon: FileText, category: "Projeto Técnico" },
+    { id: 11, title: "Aprovação do IPHAN", icon: ShieldCheck, category: "Aprovações Prévias" },
+    { id: 12, title: "Aprovação dos Bombeiros (PSCIP)", icon: ShieldCheck, category: "Aprovações Prévias" },
+    { id: 13, title: "Licença Ambiental", icon: ShieldCheck, category: "Aprovações Prévias" },
+    { id: 14, title: "Confirmação", icon: CheckCircle2, category: "Finalização" },
+];
 
 const FichaImovel = () => {
     const { id } = useParams();
@@ -72,18 +93,21 @@ const FichaImovel = () => {
                         </CardHeader>
                         <CardContent>
                             <ul className="space-y-3">
-                                {submission.steps.map((step, index) => (
-                                    <li key={index} className="flex items-center gap-3">
-                                        {step.completed ? (
-                                            <CheckCircle className="h-5 w-5 text-success" />
-                                        ) : (
-                                            <Clock className="h-5 w-5 text-muted-foreground" />
-                                        )}
-                                        <span className={step.completed ? "text-foreground" : "text-muted-foreground"}>
-                                            {step.name}
-                                        </span>
-                                    </li>
-                                ))}
+                                {allSteps.map((step) => {
+                                    const isCompleted = submission.completedSteps.includes(step.id);
+                                    return (
+                                        <li key={step.id} className="flex items-center gap-3">
+                                            {isCompleted ? (
+                                                <CheckCircle className="h-5 w-5 text-success" />
+                                            ) : (
+                                                <Clock className="h-5 w-5 text-muted-foreground" />
+                                            )}
+                                            <span className={isCompleted ? "text-foreground" : "text-muted-foreground"}>
+                                                {step.title}
+                                            </span>
+                                        </li>
+                                    );
+                                })}
                             </ul>
                         </CardContent>
                     </Card>
@@ -100,22 +124,6 @@ const FichaImovel = () => {
                         <CardContent className="text-center">
                             <p className="text-5xl font-bold text-accent">{submission.points}</p>
                             <p className="text-muted-foreground text-sm">pontos</p>
-                        </CardContent>
-                    </Card>
-                    <Card className="shadow-card">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2">
-                                <Star className="h-5 w-5 text-accent" />
-                                Conquistas
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex flex-wrap gap-2">
-                            {submission.achievements.map((ach, index) => (
-                                <Badge key={index} variant="outline" className="bg-accent-light text-accent">
-                                    <Award className="h-3 w-3 mr-1" />
-                                    {ach}
-                                </Badge>
-                            ))}
                         </CardContent>
                     </Card>
                 </div>

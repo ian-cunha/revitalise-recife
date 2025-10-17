@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, XCircle, Building2 } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
 import db from "@/data/db.json";
 
 const Submissoes = () => {
@@ -49,21 +50,27 @@ const Submissoes = () => {
                     <div className="space-y-4">
                         {submissions.map((sub) => {
                             const { icon, badge } = getStatusProps(sub.status);
+                            const progress = (sub.completedSteps.length / 14) * 100;
                             return (
                                 <Link to={`/submissoes/${sub.id}`} key={sub.id}>
-                                    <div
-                                        className="flex items-center justify-between p-4 rounded-lg border border-border hover:shadow-card transition-all cursor-pointer"
-                                    >
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-lg border border-border hover:shadow-card transition-all cursor-pointer">
                                         <div className="flex items-center gap-4">
-                                            <div className="p-2 rounded-lg bg-muted">
+                                            <div className="p-2 rounded-lg bg-muted hidden sm:block">
                                                 {icon}
                                             </div>
-                                            <div>
-                                                <h4 className="font-semibold text-sm">{sub.property}</h4>
-                                                <p className="text-xs text-muted-foreground">Enviado em: {new Date(sub.date).toLocaleDateString()}</p>
+                                            <div className="w-full">
+                                                <div className="flex flex-col sm:flex-row sm:items-center justify-between">
+                                                    <h4 className="font-semibold text-sm">{sub.property}</h4>
+                                                    <div className="block sm:hidden">{badge}</div>
+                                                </div>
+                                                <p className="text-xs text-muted-foreground mt-1 sm:mt-0">Enviado em: {new Date(sub.date).toLocaleDateString()}</p>
+                                                <div className="mt-2">
+                                                    <Progress value={progress} className="h-2 w-full" />
+                                                    <p className="text-xs text-muted-foreground mt-1">{sub.completedSteps.length} de 14 etapas concluídas</p>
+                                                </div>
                                             </div>
                                         </div>
-                                        {badge}
+                                        <div className="hidden sm:block">{badge}</div>
                                     </div>
                                 </Link>
                             );

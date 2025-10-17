@@ -5,99 +5,47 @@
             "property": "Edifício São José",
             "status": "aprovado",
             "date": "2025-10-15T14:30:15Z",
-            "steps": [
-                {
-                    "name": "Informações Básicas",
-                    "completed": true
-                },
-                {
-                    "name": "Habite-se",
-                    "completed": true
-                },
-                {
-                    "name": "AVCB",
-                    "completed": true
-                },
-                {
-                    "name": "Laudo Estrutural",
-                    "completed": true
-                },
-                {
-                    "name": "Confirmação",
-                    "completed": true
-                }
+            "completedSteps": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
             ],
-            "achievements": [
-                "Etapa 1",
-                "Etapa 2",
-                "Etapa 3",
-                "Etapa 4",
-                "Etapa 5"
-            ],
-            "points": 100
+            "points": 140
         },
         {
             "id": 2,
             "property": "Sobrado Rua da Aurora",
             "status": "em_analise",
             "date": "2025-10-16T13:45:22Z",
-            "steps": [
-                {
-                    "name": "Informações Básicas",
-                    "completed": true
-                },
-                {
-                    "name": "Habite-se",
-                    "completed": true
-                },
-                {
-                    "name": "AVCB",
-                    "completed": false
-                },
-                {
-                    "name": "Laudo Estrutural",
-                    "completed": false
-                },
-                {
-                    "name": "Confirmação",
-                    "completed": false
-                }
+            "completedSteps": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
             ],
-            "achievements": [
-                "Etapa 1",
-                "Etapa 2"
-            ],
-            "points": 40
+            "points": 60
         },
         {
             "id": 3,
             "property": "Casarão Boa Vista",
             "status": "em_analise",
             "date": "2025-10-14T12:15:08Z",
-            "steps": [
-                {
-                    "name": "Informações Básicas",
-                    "completed": true
-                },
-                {
-                    "name": "Habite-se",
-                    "completed": false
-                },
-                {
-                    "name": "AVCB",
-                    "completed": false
-                },
-                {
-                    "name": "Laudo Estrutural",
-                    "completed": false
-                },
-                {
-                    "name": "Confirmação",
-                    "completed": false
-                }
-            ],
-            "achievements": [
-                "Etapa 1"
+            "completedSteps": [
+                1,
+                2
             ],
             "points": 20
         }
