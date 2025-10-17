@@ -19,7 +19,21 @@ import { ptBR } from 'date-fns/locale';
 
 const Index = () => {
   const navigate = useNavigate();
-  const { stats, submissions } = db;
+  const { stats, submissions, documents } = db;
+
+  // Contagem dinâmica dos documentos aprovados e em análise
+  const approvedDocsCount = documents.filter(doc => doc.status === 'aprovado').length;
+  const inAnalysisCount = submissions.filter(sub => sub.status === 'em_analise').length;
+
+  const dynamicStats = stats.map(stat => {
+    if (stat.title === "Documentos Aprovados") {
+      return { ...stat, value: approvedDocsCount.toString() };
+    }
+    if (stat.title === "Em Análise") {
+      return { ...stat, value: inAnalysisCount.toString() };
+    }
+    return stat;
+  });
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -53,7 +67,7 @@ const Index = () => {
           <div className="space-y-2">
             <h1 className="text-4xl font-bold text-foreground">Bem-vindo de volta!</h1>
             <p className="text-muted-foreground text-lg">
-              Pronto para dar o próximo passo na revitalização da cidade?
+              O próximo passo na revitalização de forma ágil sem erros.
             </p>
           </div>
           <Button
@@ -70,7 +84,7 @@ const Index = () => {
 
       {/* Stats Grid */}
       <div className="grid gap-6 md:grid-cols-3">
-        {stats.map((stat) => (
+        {dynamicStats.map((stat) => (
           <Card key={stat.title} className="hover:shadow-xl transition-shadow border-2">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
@@ -104,10 +118,10 @@ const Index = () => {
                 >
                   <div
                     className={`mt-1 rounded-full p-1.5 ${activity.status === "aprovado"
-                        ? "bg-success-light text-success"
-                        : activity.status === "em_analise"
-                          ? "bg-warning-light text-warning"
-                          : "bg-destructive-light text-destructive"
+                      ? "bg-success-light text-success"
+                      : activity.status === "em_analise"
+                        ? "bg-warning-light text-warning"
+                        : "bg-destructive-light text-destructive"
                       }`}
                   >
                     <CheckCircle className="h-3 w-3" />

@@ -48,6 +48,41 @@
                 2
             ],
             "points": 20
+        },
+        {
+            "id": 4,
+            "property": "Palacete da Rua do Sol",
+            "status": "em_analise",
+            "date": "2025-10-13T11:00:00Z",
+            "completedSteps": [
+                1,
+                2,
+                3
+            ],
+            "points": 30
+        },
+        {
+            "id": 5,
+            "property": "Armazém do Porto",
+            "status": "aprovado",
+            "date": "2025-10-12T18:00:00Z",
+            "completedSteps": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+            ],
+            "points": 140
         }
     ],
     "documents": [
