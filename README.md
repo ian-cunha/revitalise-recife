@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+📄 Proposta de Solução | Revitalise 
+Plataforma para Gestão e Regularização de Imóveis
+💡 Visão Geral do Projeto
+A plataforma Revitalise  é um sistema web inteligente, projetado para modernizar e desburocratizar o processo de revitalização e regularização documental de construções antigas e tombadas no Recife.
+Nosso foco é estabelecer transparência completa, rastreabilidade inquestionável e máxima eficiência na análise técnica de documentos, garantindo a conformidade com as exigências da Prefeitura do Recife (DPPC, CREA, etc.).
+🎯 Objetivos Estratégicos
+O Revitalise visa transformar o processo documental através de quatro pilares:
+Eficiência Operacional: Reduzir o tempo de análise de documentos com fluxo de trabalho automatizado e regras de autoaprovação por SLA.
+Conformidade Dinâmica: Garantir que as exigências documentais estejam sempre atualizadas, simulando a integração com sistemas regulatórios como o EXIG.
+Inteligência Urbana: Oferecer uma visão geoespacial clara do status de regularização dos imóveis, auxiliando na priorização de ações (ex: Recentro).
+🏗️ Módulos e Funcionalidades Chave
+1. 🗂️ Gestão de Documentos e Fluxo de Trabalho 
+O sistema padroniza a submissão de documentos técnicos obrigatórios (Projeto Arquitetônico, Matrícula, ART/RRT) e gerencia seu ciclo de vida através de um fluxo automatizado:
+Etapa
+Responsável
+Regras Chave
+1. Cadastro
+Proponente
+Submissão inicial de dados e documentos.
+2. Triagem
+Analista Interno
+Verificação de requisitos mínimos e formato.
+3. Análise Técnica
+DPPC/CREA
+Validação detalhada da conformidade (Zod, EXIG).
+4. Complementação
+Proponente
+Correção de pendências.
+5. Aprovação Final
+Administrador
+Emissão do parecer e registro de conclusão.
 
-## Project info
+SLA Automatizado: Cada etapa possui um Prazo Limite de Serviço (SLA) configurável (padrão: 120h).
+Autoaprovação: Se o SLA for excedido sem ação do analista, a etapa é automaticamente sinalizada como Autoaprovada, garantindo o andamento do processo e a rastreabilidade da inação.
+2. 📜 Prova do Processo (Auditabilidade Total)
+Este módulo garante segurança jurídica e transparência pública ao criar uma linha do tempo imutável de cada processo:
+Evidências Rastreáveis: Cada ação (upload, validação, alteração de status) gera um log detalhado, incluindo Usuário, Cargo, IP, Timestamp e o estado Antes/Depois da mudança.
+Integridade Criptográfica: O sistema armazena o Hash Criptográfico (SHA-256) de cada documento e de cada log de auditoria, garantindo que os dados não foram adulterados.
+Visualizador: Um componente dedicado (ProcessEvidenceViewer) permite a visualização da linha do tempo da auditoria, essencial para consultas e auditorias externas.
+4. 🧮 Inteligência e Análise de Conformidade
+O sistema atua como um consultor técnico, minimizando erros e agilizando a correção:
+Validação Zod: Utilização da biblioteca Zod para aplicar regras de validação rigorosas, garantindo que os documentos submetidos atendam aos requisitos mínimos antes de chegar ao analista.
+Análise Automática de Erros: O sistema detecta falhas comuns como: documentos corrompidos/ilegíveis, falta de assinatura ou inconsistências de dados, gerando um relatório imediato.
+Indicadores Gráficos: O painel de análise exibe métricas críticas, como % de conformidade, Documentos Faltantes por Tipo e Documentos com Maior Índice de Erro.
+5. 🤝 Assistente de Regularização
+Uma ferramenta de suporte para os proponentes e responsáveis técnicos:
+Sugestões Inteligentes: Fornece recomendações automáticas de correção, como “Falta assinatura na planta arquitetônica” ou “Inconsistência entre Matrícula e ART”.
+Alertas e Notificações: Emite alertas de prazo e notificações sobre novas exigências.
+Checklist: Interface clara com status “Aprovado / Falta / Corrigir” para cada item obrigatório.
+6. 🔗 Integrações Regulatórias
+A plataforma é construída para futura integração com sistemas oficiais, simulando esta capacidade desde já:
+EXIG: Simulação de um banco de dados de regras que define as exigências legais e documentais de forma dinâmica, dependendo do bairro, tipo de imóvel e zona de preservação (ZEPH). Isso assegura que as regras aplicadas estejam sempre atualizadas.
+💻 Resumo Técnico e Arquitetura
+Aspecto
+Detalhe
+Benefício para o Cliente
+Tecnologias
+Next.js, TypeScript, Tailwind CSS, Zustand e Firebase
+Performance, escalabilidade e interface moderna.
+Validação
+Zod (Schema Validation)
+Redução de erros na fonte e garantia de dados estruturados.
+Gráficos
+Recharts
+Visualizações de dados claras e dashboards informativos.
+Segurança
+Hashes SHA-256
+Integridade de dados e conformidade com requisitos de auditabilidade.
 
-**URL**: https://lovable.dev/projects/b1e2b5d0-2f57-4f15-852c-2a4d63bb40bb
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/b1e2b5d0-2f57-4f15-852c-2a4d63bb40bb) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b1e2b5d0-2f57-4f15-852c-2a4d63bb40bb) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+✅ Critérios de Aceite (DoD)
+O projeto será considerado concluído quando atender aos seguintes critérios:
+Cada ação no fluxo de trabalho deve gerar uma evidência rastreável com hash criptográfico.
+O Mapa Interativo deve exibir todos os imóveis mockados com seu respectivo status documental e permitir filtragem.
+O sistema deve simular a análise automática de erros e exibir os indicadores no painel de controle.
+O Assistente de Regularização deve retornar sugestões automáticas baseadas nas regras de conformidade.
+O mecanismo de SLA deve registrar a autoaprovação de uma etapa após o tempo limite ser atingido.
+Todos os logs e dossiês devem ser exportáveis (simulação de geração de ZIP com manifesto de hashes).
