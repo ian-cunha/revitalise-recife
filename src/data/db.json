@@ -1,0 +1,224 @@
+{
+    "submissions": [
+        {
+            "id": 1,
+            "property": "Edifício São José",
+            "status": "aprovado",
+            "date": "2025-10-15T14:30:15Z",
+            "steps": [
+                {
+                    "name": "Informações Básicas",
+                    "completed": true
+                },
+                {
+                    "name": "Habite-se",
+                    "completed": true
+                },
+                {
+                    "name": "AVCB",
+                    "completed": true
+                },
+                {
+                    "name": "Laudo Estrutural",
+                    "completed": true
+                },
+                {
+                    "name": "Confirmação",
+                    "completed": true
+                }
+            ],
+            "achievements": [
+                "Etapa 1",
+                "Etapa 2",
+                "Etapa 3",
+                "Etapa 4",
+                "Etapa 5"
+            ],
+            "points": 100
+        },
+        {
+            "id": 2,
+            "property": "Sobrado Rua da Aurora",
+            "status": "em_analise",
+            "date": "2025-10-16T13:45:22Z",
+            "steps": [
+                {
+                    "name": "Informações Básicas",
+                    "completed": true
+                },
+                {
+                    "name": "Habite-se",
+                    "completed": true
+                },
+                {
+                    "name": "AVCB",
+                    "completed": false
+                },
+                {
+                    "name": "Laudo Estrutural",
+                    "completed": false
+                },
+                {
+                    "name": "Confirmação",
+                    "completed": false
+                }
+            ],
+            "achievements": [
+                "Etapa 1",
+                "Etapa 2"
+            ],
+            "points": 40
+        },
+        {
+            "id": 3,
+            "property": "Casarão Boa Vista",
+            "status": "em_analise",
+            "date": "2025-10-14T12:15:08Z",
+            "steps": [
+                {
+                    "name": "Informações Básicas",
+                    "completed": true
+                },
+                {
+                    "name": "Habite-se",
+                    "completed": false
+                },
+                {
+                    "name": "AVCB",
+                    "completed": false
+                },
+                {
+                    "name": "Laudo Estrutural",
+                    "completed": false
+                },
+                {
+                    "name": "Confirmação",
+                    "completed": false
+                }
+            ],
+            "achievements": [
+                "Etapa 1"
+            ],
+            "points": 20
+        }
+    ],
+    "documents": [
+        {
+            "name": "Habite-se",
+            "status": "aprovado",
+            "etapa": "Aprovação Final"
+        },
+        {
+            "name": "AVCB",
+            "status": "pendente",
+            "etapa": "Análise Técnica"
+        },
+        {
+            "name": "Laudo Estrutural",
+            "status": "em_analise",
+            "etapa": "Triagem"
+        },
+        {
+            "name": "Matrícula Atualizada",
+            "status": "aprovado",
+            "etapa": "Aprovação Final"
+        },
+        {
+            "name": "Alvará de Funcionamento",
+            "status": "irregular",
+            "etapa": "Complementação"
+        }
+    ],
+    "audit_logs": [
+        {
+            "id": 1,
+            "action": "Documento aprovado",
+            "user": "Ana Silva (Analista)",
+            "timestamp": "2025-10-16 14:30:15",
+            "type": "success"
+        },
+        {
+            "id": 2,
+            "action": "Documento enviado para complementação",
+            "user": "João Santos (Técnico)",
+            "timestamp": "2025-10-16 13:45:22",
+            "type": "warning"
+        },
+        {
+            "id": 3,
+            "action": "Novo imóvel cadastrado",
+            "user": "Maria Costa (Admin)",
+            "timestamp": "2025-10-16 12:15:08",
+            "type": "info"
+        }
+    ],
+    "properties": [
+        {
+            "id": 1,
+            "nome": "Edifício São José",
+            "endereco": "Rua do Bom Jesus, 123",
+            "status": "completo",
+            "tipo": "Comercial",
+            "zeph": true
+        },
+        {
+            "id": 2,
+            "nome": "Sobrado Rua da Aurora",
+            "endereco": "Rua da Aurora, 456",
+            "status": "pendente",
+            "tipo": "Residencial",
+            "zeph": false
+        },
+        {
+            "id": 3,
+            "nome": "Casarão Boa Vista",
+            "endereco": "Av. Conde da Boa Vista, 789",
+            "status": "irregular",
+            "tipo": "Tombado",
+            "zeph": true
+        }
+    ],
+    "stats": [
+        {
+            "title": "Imóveis Cadastrados",
+            "value": "247",
+            "icon": "Building2",
+            "color": "text-primary",
+            "bg": "bg-primary-light"
+        },
+        {
+            "title": "Documentos Aprovados",
+            "value": "24",
+            "icon": "FileCheck",
+            "color": "text-success",
+            "bg": "bg-success-light"
+        },
+        {
+            "title": "Em Análise",
+            "value": "2",
+            "icon": "Clock",
+            "color": "text-warning",
+            "bg": "bg-warning-light"
+        }
+    ],
+    "recentActivity": [
+        {
+            "id": 1,
+            "title": "Habite-se aprovado - Edifício São José",
+            "status": "success",
+            "time": "2h"
+        },
+        {
+            "id": 2,
+            "title": "AVCB pendente - Sobrado Rua da Aurora",
+            "status": "warning",
+            "time": "4h"
+        },
+        {
+            "id": 3,
+            "title": "Laudo estrutural enviado - Casarão Boa Vista",
+            "status": "info",
+            "time": "6h"
+        }
+    ]
+}

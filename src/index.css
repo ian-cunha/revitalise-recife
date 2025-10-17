@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Minimal Color Palette */
+    /* New Color Palette */
     --background: 0 0% 100%;
+    /* White */
     --foreground: 220 15% 20%;
+    /* Dark Blue */
 
     --card: 0 0% 100%;
     --card-foreground: 220 15% 20%;
@@ -18,36 +20,36 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 20%;
 
-    /* Primary - Clean Blue */
+    /* Primary - Dark Blue */
     --primary: 220 70% 50%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 220 70% 95%;
 
-    /* Secondary - Soft Purple */
-    --secondary: 260 60% 50%;
+    /* Secondary - Lighter Blue */
+    --secondary: 220 60% 50%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 260 60% 95%;
+    --secondary-light: 220 60% 95%;
 
     /* Muted - Light Grays */
     --muted: 220 15% 96%;
     --muted-foreground: 220 10% 45%;
 
-    /* Accent - Vibrant Orange */
-    --accent: 25 95% 55%;
+    /* Accent - Yellow */
+    --accent: 45 90% 55%;
     --accent-foreground: 220 15% 20%;
-    --accent-light: 25 95% 95%;
+    --accent-light: 45 90% 95%;
 
-    /* Success - Fresh Green */
+    /* Success - Green */
     --success: 140 60% 45%;
     --success-foreground: 0 0% 100%;
     --success-light: 140 60% 95%;
 
-    /* Warning - Bright Yellow */
+    /* Warning - Yellow */
     --warning: 45 90% 55%;
     --warning-foreground: 220 15% 20%;
     --warning-light: 45 90% 95%;
 
-    /* Destructive - Clean Red */
+    /* Destructive - Red */
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
     --destructive-light: 0 70% 95%;
@@ -82,28 +84,28 @@ All colors MUST be HSL.
 
   .dark {
     --background: 220 20% 10%;
-    --foreground: 220 15% 95%;
+    --foreground: 0 0% 100%;
 
     --card: 220 20% 12%;
-    --card-foreground: 220 15% 95%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 220 20% 12%;
-    --popover-foreground: 220 15% 95%;
+    --popover-foreground: 0 0% 100%;
 
     --primary: 220 70% 60%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 220 70% 15%;
 
-    --secondary: 260 60% 60%;
+    --secondary: 220 60% 60%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 260 60% 15%;
+    --secondary-light: 220 60% 15%;
 
     --muted: 220 20% 18%;
     --muted-foreground: 220 10% 60%;
 
-    --accent: 25 95% 60%;
+    --accent: 45 90% 60%;
     --accent-foreground: 220 20% 10%;
-    --accent-light: 25 95% 15%;
+    --accent-light: 45 90% 15%;
 
     --success: 140 60% 50%;
     --success-foreground: 0 0% 100%;
@@ -122,11 +124,11 @@ All colors MUST be HSL.
     --ring: 220 70% 60%;
 
     --sidebar-background: 220 20% 12%;
-    --sidebar-foreground: 220 15% 95%;
+    --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 220 70% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 20% 18%;
-    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 220 20% 20%;
     --sidebar-ring: 220 70% 60%;
   }
@@ -147,13 +149,12 @@ All colors MUST be HSL.
   .step-active {
     @apply bg-primary text-primary-foreground;
   }
-  
+
   .step-completed {
     @apply bg-success text-success-foreground;
   }
-  
+
   .step-inactive {
     @apply bg-muted text-muted-foreground;
   }
 }
-

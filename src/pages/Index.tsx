@@ -1,102 +1,94 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, FileCheck, Clock, TrendingUp, CheckCircle, Plus, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import {
+  Building2,
+  FileCheck,
+  Clock,
+  ArrowRight,
+  Plus,
+  TrendingUp,
+  FileUp,
+  CheckCircle,
+  Award,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import db from "@/data/db.json";
+import { formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
 
 const Index = () => {
   const navigate = useNavigate();
+  const { stats, submissions } = db;
 
-  const stats = [
-    {
-      title: "Imóveis Cadastrados",
-      value: "247",
-      icon: Building2,
-      color: "text-primary",
-      bg: "bg-primary-light",
-    },
-    {
-      title: "Documentos Aprovados",
-      value: "24",
-      icon: FileCheck,
-      color: "text-success",
-      bg: "bg-success-light",
-    },
-    {
-      title: "Em Análise",
-      value: "2",
-      icon: Clock,
-      color: "text-warning",
-      bg: "bg-warning-light",
-    },
-  ];
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "aprovado":
+        return <FileCheck className="h-4 w-4 text-success" />;
+      case "em_analise":
+        return <Clock className="h-4 w-4 text-warning" />;
+      default:
+        return <TrendingUp className="h-4 w-4 text-primary" />;
+    }
+  };
 
-  const recentActivity = [
-    {
-      id: 1,
-      title: "Habite-se aprovado - Edifício São José",
-      status: "success",
-      time: "2h",
-    },
-    {
-      id: 2,
-      title: "AVCB pendente - Sobrado Rua da Aurora",
-      status: "warning",
-      time: "4h",
-    },
-    {
-      id: 3,
-      title: "Laudo estrutural enviado - Casarão Boa Vista",
-      status: "info",
-      time: "6h",
-    },
-  ];
+  const getIcon = (iconName: string, className: string) => {
+    switch (iconName) {
+      case "Building2":
+        return <Building2 className={className} />;
+      case "FileCheck":
+        return <FileCheck className={className} />;
+      case "Clock":
+        return <Clock className={className} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
-      {/* Hero Section - Minimal */}
-      <div className="space-y-4">
-        <div>
-          <h1 className="text-4xl font-bold text-foreground">Bem-vindo ao Revitalise</h1>
-          <p className="text-muted-foreground text-lg mt-2">
-            Gerencie documentos de revitalização urbana de forma inteligente
-          </p>
-        </div>
+      {/* Hero Section */}
+      <Card className="shadow-lg border-2 border-primary/10 bg-gradient-to-br from-primary-light via-white to-white">
+        <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold text-foreground">Bem-vindo de volta!</h1>
+            <p className="text-muted-foreground text-lg">
+              Pronto para dar o próximo passo na revitalização da cidade?
+            </p>
+          </div>
+          <Button
+            onClick={() => navigate("/submeter")}
+            size="lg"
+            className="bg-primary hover:bg-primary/90 gap-2 shadow-lg transform hover:scale-105 transition-transform"
+          >
+            <Plus className="h-5 w-5" />
+            Nova Submissão
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </Button>
+        </CardContent>
+      </Card>
 
-        <Button
-          onClick={() => navigate("/submeter")}
-          size="lg"
-          className="bg-primary hover:bg-primary/90 gap-2 shadow-lg"
-        >
-          <Plus className="h-5 w-5" />
-          Submeter Novo Documento
-          <ArrowRight className="h-4 w-4 ml-2" />
-        </Button>
-      </div>
-
-      {/* Stats Grid - Minimal Cards */}
+      {/* Stats Grid */}
       <div className="grid gap-6 md:grid-cols-3">
         {stats.map((stat) => (
-          <Card key={stat.title} className="border-2 hover:shadow-lg transition-all">
+          <Card key={stat.title} className="hover:shadow-xl transition-shadow border-2">
             <CardContent className="p-6">
-              <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-2xl ${stat.bg}`}>
-                  <stat.icon className={`h-6 w-6 ${stat.color}`} />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">{stat.title}</p>
-                  <p className="text-3xl font-bold mt-1">{stat.value}</p>
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">{stat.title}</p>
+                <div className={`p-2 rounded-lg ${stat.bg}`}>
+                  {getIcon(stat.icon, `h-5 w-5 ${stat.color}`)}
                 </div>
               </div>
+              <p className="text-4xl font-bold mt-2">{stat.value}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       {/* Content Grid */}
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-5">
         {/* Recent Activity */}
-        <Card className="lg:col-span-2 border-2">
+        <Card className="lg:col-span-3 border-2">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <TrendingUp className="h-5 w-5 text-primary" />
@@ -105,24 +97,26 @@ const Index = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {recentActivity.map((activity) => (
+              {submissions.slice(0, 3).map((activity) => (
                 <div
                   key={activity.id}
-                  className="flex items-start gap-3 p-4 rounded-xl hover:bg-muted/50 transition-colors border border-transparent hover:border-border"
+                  className="flex items-start gap-3 p-4 rounded-xl hover:bg-muted/50 transition-colors"
                 >
                   <div
-                    className={`mt-1 rounded-full p-1.5 ${activity.status === "success"
-                      ? "bg-success-light text-success"
-                      : activity.status === "warning"
-                        ? "bg-warning-light text-warning"
-                        : "bg-primary-light text-primary"
+                    className={`mt-1 rounded-full p-1.5 ${activity.status === "aprovado"
+                        ? "bg-success-light text-success"
+                        : activity.status === "em_analise"
+                          ? "bg-warning-light text-warning"
+                          : "bg-destructive-light text-destructive"
                       }`}
                   >
                     <CheckCircle className="h-3 w-3" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium">{activity.title}</p>
-                    <p className="text-xs text-muted-foreground mt-1">há {activity.time}</p>
+                    <p className="text-sm font-medium">{activity.property} - Status: {activity.status.replace("_", " ")}</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {formatDistanceToNow(new Date(activity.date), { addSuffix: true, locale: ptBR })}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -130,46 +124,55 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        {/* Quick Stats */}
-        <Card className="border-2">
+        {/* Quick Guide */}
+        <Card className="lg:col-span-2 border-2">
           <CardHeader>
-            <CardTitle className="text-lg">Resumo do Sistema</CardTitle>
+            <CardTitle className="text-lg">Guia Rápido</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">Taxa de Conformidade</span>
-                <span className="font-bold text-success">76.5%</span>
+          <CardContent className="space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <FileUp className="h-5 w-5" />
               </div>
-              <div className="h-3 rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-success w-[76.5%] transition-all"></div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">Processos Ativos</span>
-                <span className="font-bold text-warning">34</span>
-              </div>
-              <div className="h-3 rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-warning w-[45%] transition-all"></div>
+              <div>
+                <p className="font-semibold text-sm">1. Submeta os Documentos</p>
+                <p className="text-xs text-muted-foreground">
+                  Preencha as informações e anexe os arquivos necessários.
+                </p>
               </div>
             </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">Imóveis ZEPH</span>
-                <span className="font-bold text-primary">52</span>
+            <div className="flex items-start gap-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Clock className="h-5 w-5" />
               </div>
-              <div className="h-3 rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-primary w-[21%] transition-all"></div>
+              <div>
+                <p className="font-semibold text-sm">2. Acompanhe o Status</p>
+                <p className="text-xs text-muted-foreground">
+                  Verifique o andamento da sua submissão na aba "Submissões".
+                </p>
               </div>
             </div>
-
-            <div className="pt-4 border-t">
-              <Badge variant="outline" className="w-full justify-center py-2">
-                Atualizado agora
-              </Badge>
+            <div className="flex items-start gap-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <CheckCircle className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-sm">3. Receba a Aprovação</p>
+                <p className="text-xs text-muted-foreground">
+                  Seu imóvel será aprovado após a análise de todos os documentos.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Award className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-sm">4. Ganhe Pontos</p>
+                <p className="text-xs text-muted-foreground">
+                  Acumule pontos e conquistas a cada etapa concluída.
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
