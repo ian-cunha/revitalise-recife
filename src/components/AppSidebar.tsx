@@ -25,6 +25,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/hooks/useAuth";
 
+
+
 const mainNav = [
   { title: "Dashboard", url: "/", icon: Home },
   { title: "Submeter Documento", url: "/submeter", icon: Plus, highlight: true },
